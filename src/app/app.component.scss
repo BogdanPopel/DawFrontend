@@ -1,0 +1,16 @@
+.actions{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button-wrapper{
+  width: 100px;
+  background-color: bisque;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+}

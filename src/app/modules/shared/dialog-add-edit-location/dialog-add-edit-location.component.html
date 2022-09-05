@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class = "title">
+    {{title}}
+  </h1>
+
+ <p [ngStyle]="isEditable ? {color : 'green'} : {color : 'red'}" >
+   Details
+ </p>
+
+  <form [formGroup]="locationForm" class="location-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Location name</mat-label>
+      <input matInput placeholder="name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>streetNumber</mat-label>
+      <input matInput placeholder="streetNumber" formControlName="streetNumber">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>county</mat-label>
+      <input matInput placeholder="county" formControlName="county">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>city</mat-label>
+      <input matInput placeholder="city" formControlName="city">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>id</mat-label>
+      <input matInput placeholder="id" formControlName="id">
+    </mat-form-field>
+  </form>
+
+  <div class="actions" (click)="closeDialog()">
+    <div class="button-wrapper">
+      Cancel
+    </div>
+    <div *ngIf="!data.location" class="button-wrapper" (click)="save()">
+    Save
+    </div>
+
+  </div>
+</div>
