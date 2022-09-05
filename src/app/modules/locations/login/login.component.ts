@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public login(): void {
     this.data.changeMessage('Hello from login');
+    localStorage.setItem('Role', 'Admin');
     this.router.navigate([`/locations`]);
   }
 
