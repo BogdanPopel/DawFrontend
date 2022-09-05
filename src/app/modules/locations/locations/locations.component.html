@@ -49,5 +49,13 @@
     Add data
   </button>
 
+  <app-child [childMessage] = "parentMessage" (messageEvent)="receiveMessage($event)">
+  </app-child>
+
+  <div>
+    <button mat-raised-button (click)="logout()" class="demo-button">
+      Logout
+    </button>
+  </div>
 </div>
 

@@ -14,7 +14,7 @@ export class LocationsComponent implements OnInit {
 
   public locations: Location[];
   public displayedColumns: string[] = ['id', 'name', 'adress', 'Delete', 'Edit'];
-
+  public parentMessage = "message from parent";
   constructor(
     private locationService: LocationsService,
     private router: Router,
@@ -28,7 +28,10 @@ export class LocationsComponent implements OnInit {
   public getLocations(): void{
     this.locationService.getAllLocations().subscribe( (result) => {
       this.locations = result;
-    })
+    },
+      (error) => {
+        console.log(error);
+      });
 }
  public seeAdress(id) : void{
     // @ts-ignore
@@ -62,6 +65,14 @@ export class LocationsComponent implements OnInit {
  }
  public editLocation(location):void{
     this.addData(location);
+ }
+
+ public receiveMessage(event) : void{
+    console.log(event);
+ }
+
+ public logout():void{
+    this.router.navigate([`/login`]);
  }
 
 }

@@ -9,8 +9,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatButtonModule} from "@angular/material/button";
-import {AppModule} from "../../app.module";
 import {RowHoverDirective} from "../../row-hover.directive";
+import { ChildComponent } from './child/child.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -18,7 +19,9 @@ import {RowHoverDirective} from "../../row-hover.directive";
   declarations: [
     LocationsComponent,
     LocationComponent,
-    RowHoverDirective
+    RowHoverDirective,
+    ChildComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
