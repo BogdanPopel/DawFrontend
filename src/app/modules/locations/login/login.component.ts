@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {Subscription} from "rxjs";
-import {DataService} from "../../../services/data.service";
+import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {DataService} from '../../../services/data.service';
+import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     message: string;
     public subscription: Subscription;
 
+  public loginForm: FormGroup = new FormGroup({
+    // fielduri form
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
   constructor(
     private data: DataService,
     private router: Router
@@ -21,13 +28,20 @@ export class LoginComponent implements OnInit, OnDestroy {
   this.subscription = this.data.currentMessage.subscribe(message => this.message = message);
   }
 
+  get email(): AbstractControl {
+    return this.loginForm.get('email');
+  }
+  get password(): AbstractControl {
+    return this.loginForm.get('password');
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  public login():void{
+  public login(): void {
     this.data.changeMessage('Hello from login');
-    this.router.navigate([`/locations`])
+    this.router.navigate([`/locations`]);
   }
 
 

@@ -1,0 +1,44 @@
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  .form-section{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .title{
+      font-size: 30px;
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    .login-form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .mat-form-field{
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  .backround-section{
+    width: 45%;
+    height: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
