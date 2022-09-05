@@ -12,6 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {RowHoverDirective} from "../../row-hover.directive";
 import { ChildComponent } from './child/child.component';
 import { LoginComponent } from './login/login.component';
+import {MarksPipe} from "../../marks.pipe";
 
 
 
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     LocationComponent,
     RowHoverDirective,
     ChildComponent,
-    LoginComponent
+    LoginComponent,
+    MarksPipe
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
   ],
   exports:[
-  RowHoverDirective
+  RowHoverDirective,
+
 ]
 })
 export class LocationsModule { }

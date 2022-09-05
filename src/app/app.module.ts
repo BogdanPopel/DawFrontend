@@ -12,7 +12,7 @@ import {HttpReqInterceptor} from "./http-requests.interceptor";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,28 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LocationsService} from "../../../services/locations.service";
 import {Router} from "@angular/router";
 import {Location} from "../../../interfaces/location";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogAddEditLocationComponent} from "../../shared/dialog-add-edit-location/dialog-add-edit-location.component";
+import {Subscription} from "rxjs";
+import {DataService} from "../../../services/data.service";
 
 @Component({
   selector: 'app-locations',
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.scss']
 })
-export class LocationsComponent implements OnInit {
+export class LocationsComponent implements OnInit, OnDestroy {
 
   public locations: Location[];
   public displayedColumns: string[] = ['id', 'name', 'adress', 'Delete', 'Edit'];
   public parentMessage = "message from parent";
+  public message;
+  public subscription: Subscription;
+
   constructor(
     private locationService: LocationsService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private data: DataService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     this.getLocations();
+    this.subscription = this.data.currentMessage.subscribe(message => this.message = message);
+
   }
 
   public getLocations(): void{
@@ -72,7 +81,12 @@ export class LocationsComponent implements OnInit {
  }
 
  public logout():void{
+    this.data.changeMessage('Hello from Locations');
     this.router.navigate([`/login`]);
  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
 }
